@@ -26,28 +26,31 @@ export const useUserStore = defineStore('userStore', {
     async login(account) {
       // 显示loading
       const loading = mq.showLoading('登录中')
-      // 调用登录接口
-      const res = await userAPI.login(account)
-      if (res) {
-        // 保存token
-        this.setToken(res.token)
-        // 请求用户信息
-        const userInfo = await userAPI.getUserInfoById(res.userId)
-        if (userInfo) {
-          this.setUserInfo(userInfo)
-          // 请求用户菜单
-          const userMenus = await roleAPI.getRoleMenusByRoleId(
-            userInfo.role.roleId,
-          )
-          if (userMenus) {
-            this.setUserMenus(userMenus)
+      try {
+        // 调用登录接口
+        const res = await userAPI.login(account)
+        if (res) {
+          // 保存token
+          this.setToken(res.token)
+          // 请求用户信息
+          const userInfo = await userAPI.getUserInfoById(res.userId)
+          if (userInfo) {
+            this.setUserInfo(userInfo)
+            // 请求用户菜单
+            const userMenus = await roleAPI.getRoleMenusByRoleId(
+              userInfo.role.roleId,
+            )
+            if (userMenus) {
+              this.setUserMenus(userMenus)
+            }
           }
+          mq.notifyOK('登录成功')
+          router.push(URL.SYSTEM_HOME)
         }
-        mq.notifyOK('登录成功')
-        router.push(URL.SYSTEM_ADMIN_HOME)
+      } finally {
+        // 关闭loading
+        loading.close()
       }
-      // 关闭loading
-      loading.close()
     },
     logout() {
       this.$reset()

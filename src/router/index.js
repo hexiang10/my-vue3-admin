@@ -14,7 +14,7 @@ router.beforeEach((to, from) => {
     document.title = to.meta.title
   }
   if (useUserStore().token) {
-    if (to.path == URL.SYSTEM_LOGIN) return URL.SYSTEM_ADMIN_HOME
+    if (to.path == URL.SYSTEM_LOGIN) return URL.SYSTEM_HOME
   } else if (to.path !== URL.SYSTEM_LOGIN) return URL.SYSTEM_LOGIN
 })
 

@@ -17,6 +17,8 @@
     "normalize.css": "^8.0.1",
     "pinia": "^2.1.7",
     "pinia-plugin-persistedstate": "^3.2.1",
+    "tdesign-icons-vue-next": "^0.2.2",
+    "tdesign-vue-next": "^1.9.6",
     "vue": "^3.4.21",
     "vue-router": "^4.3.0",
     "vue3-seamless-scroll": "^2.0.1"
@@ -26,6 +28,8 @@
     "@vitejs/plugin-vue": "^5.0.4",
     "@vue-macros/reactivity-transform": "^0.4.4",
     "autoprefixer": "^10.4.19",
+    "less": "^4.2.0",
+    "less-loader": "^12.2.0",
     "postcss": "^8.4.38",
     "prettier": "^3.2.5",
     "sass": "^1.72.0",

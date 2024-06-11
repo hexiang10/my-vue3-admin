@@ -9,6 +9,10 @@ import Icons from 'unplugin-icons/vite'
 import IconsResolver from 'unplugin-icons/resolver'
 import path from 'path'
 import Pages from 'vite-plugin-pages'
+import { TDesignResolver } from 'unplugin-vue-components/resolvers'
+import proxyApi from './src/api'
+
+// 项目根目录
 const pathSrc = path.resolve(__dirname, 'src')
 
 // https://vitejs.dev/config/
@@ -36,6 +40,7 @@ export default defineConfig(({ mode }) => {
           rewrite: (path) =>
             path.replace(new RegExp('^' + env.VITE_APP_BASE_API), ''),
         },
+        ...proxyApi,
       },
       // 自定义中间件
       middleware: [],
@@ -57,6 +62,9 @@ export default defineConfig(({ mode }) => {
       ReactivityTransform(),
       AutoImport({
         resolvers: [
+          TDesignResolver({
+            library: 'vue-next',
+          }),
           ElementPlusResolver(),
           // 自动导入图标组件
           IconsResolver({
@@ -70,6 +78,9 @@ export default defineConfig(({ mode }) => {
       }),
       Components({
         resolvers: [
+          TDesignResolver({
+            library: 'vue-next',
+          }),
           ElementPlusResolver(),
           // 自动注册图标组件
           IconsResolver({
@@ -97,5 +108,17 @@ export default defineConfig(({ mode }) => {
       include: ['axios'],
     },
     build: {},
+    css: {
+      preprocessorOptions: {
+        less: {
+          charset: false, // 禁用 less.js 内置的字符集检测，以便支持中文标识符
+          javascriptEnabled: true, // 启用 less.js 内置的 JavaScript 解析器
+          additionalData: '@import "@/style/global.less";',
+        },
+        scss: {
+          additionalData: '@import "@/style/mixin.scss";',
+        },
+      },
+    },
   }
 })

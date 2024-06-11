@@ -7,14 +7,15 @@
     :hover="true"
     :singleLine="true"
     :step="0.3">
-    <template  v-for="(item) in list">
+    <template v-for="item in list">
       <span class="m-[10px]"
         ><el-card shadow="hover" class="show-item w-[120px]">
-          <img
-            :src="item.imgUrl"
-            class="object-fill h-[150px]">
-          </img>
-          <template #footer><span class="my-center-flex my-ellipsis">{{item.title}}</span></template></el-card
+          <el-image :src="item.url" class="object-fill h-[150px]"> </el-image>
+          <template #footer
+            ><span class="my-center-flex my-ellipsis">{{
+              item.title
+            }}</span></template
+          ></el-card
         >
       </span>
     </template>
@@ -33,21 +34,21 @@ const props = defineProps({
       let arr = []
       for (let i = 0; i < 20; i++) {
         arr.push({
-           imgUrl: `https://picsum.photos/120/150?${i}`,
-           title: `第${i + 1}条数据`,
+          url: `https://cdn-img.gitcode.com/ed/ca/62ed3ca6afbac50cc2dadf19846feb6d30db01d4a5a46ce2edf4aef9d597259e.png?time=1716449229155`, // https://picsum.photos/120/150?${i}
+          title: `第${i + 1}条数据`,
         })
       }
       return arr
-    }
-  }
+    },
+  },
 })
 </script>
 
 <style>
-.el-card__body{
+.el-card__body {
   padding: 0px;
 }
-.el-card__footer{
+.el-card__footer {
   padding: 5px;
 }
 .scroll {
@@ -55,9 +56,8 @@ const props = defineProps({
   overflow: hidden;
 }
 .show-item:hover {
-cursor: pointer;
-	transform: translateY(-5px);
-	transition: all 0.2s ease-in;
-
+  cursor: pointer;
+  transform: translateY(-5px);
+  transition: all 0.2s ease-in;
 }
 </style>

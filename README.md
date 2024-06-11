@@ -1,8 +1,8 @@
-# my-vue3-template
-> 一个基于个人定制化的vue3代码模板 —— A customizable vue3 code template
+# my-vue3-admin
+> 一个基于个人定制化的vue3管理系统 —— A vue3 Management system based on personal customization
 
 ## 当前版本
-- 版本：v1.0.1
+- 版本：v1.0.0
 - 语言：javascript
 
 ## 接口文档
@@ -19,8 +19,9 @@
 | Tailwindcss  |              https://www.tailwindcss.cn/               |
 |    Pinia     |              https://pinia.vuejs.org/zh/               |
 |    Axios     |          http://www.axios-js.com/zh-cn/docs/           |
+|   TDesign    |     https://tdesign.tencent.com/vue-next/overview      |
 
-## 插件依赖
+## 拓展依赖
 
 |                插件                 |                             链接                             |
 | :---------------------------------: | :----------------------------------------------------------: |
@@ -29,9 +30,10 @@
 |       v-md-editor（暂未使用）       |   https://code-farmer-i.github.io/vue-markdown-editor/zh/    |
 |          vite-plugin-pages          |   https://gitcode.com/hannoeru/vite-plugin-pages/overview    |
 | vite-plugin-vue-layouts（暂未使用） | https://gitcode.com/JohnCampionJr/vite-plugin-vue-layouts/overview |
+|              lordicon               |                  https://lordicon.com/icons                  |
+|       tdesign-icons-vue-next        |     https://tdesign.tencent.com/vue-next/components/icon     |
 
-## 图片图标
+## 测试数据
 
-- picsum：https://picsum.photos/（图片测试集）
-- lordicon：https://lordicon.com/icons（好用的图标库）
-
+- jsonplaceholder：https://jsonplaceholder.typicode.com/
+- picsum：https://picsum.photos/

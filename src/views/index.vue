@@ -7,15 +7,18 @@
     <el-divider />
     <div>
       <el-button @click="mockApi()" class="mr-4">mockLocalApi测试</el-button>
-      <el-button @click="mockApi(URL.MOCK_PICSUMLIST)" class="mr-4"
+      <el-button @click="mockApi(URL.MOCK_JSONPLACEHOLDER)" class="mr-4"
         >mockRomoteApi测试</el-button
+      >
+      <el-button @click="mockApi('/cros/comments?postId=1', true)" class="mr-4"
+        >mockProxyApi测试</el-button
       >
       mock数据：【{{ mockData }}】
     </div>
     <el-divider />
     <div>
       <el-button @click="$router.push('/')">回到首页</el-button>
-      <el-button @click="$router.push(URL.SYSTEM_ADMIN_HOME)">系统主页</el-button>
+      <el-button @click="$router.push(URL.SYSTEM_HOME)">系统主页</el-button>
       <el-button @click="userStore.logout()">退出登录</el-button>
     </div>
     <el-divider />
@@ -24,6 +27,7 @@
     <my-seamless :list="res.seamlessList"></my-seamless>
     <el-divider />
     <lord-icon src="https://cdn.lordicon.com/vyqvtrtg.json" />
+    <letters-t-icon /><CenterFocusStrongIcon />
     <el-divider />
   </div>
 </template>
@@ -31,7 +35,6 @@
 <script setup>
 import URL from '@/enum/url'
 import { mock } from '@/mock'
-import http from '@/service'
 import { useBaseStore } from '@/store/baseStore'
 import { useUserStore } from '@/store/system/userStore'
 const data = ref('Hello World')
@@ -39,23 +42,9 @@ const baseStore = useBaseStore()
 const userStore = useUserStore()
 const res = $ref({})
 const mockData = ref('🈚️')
-onMounted(() => {
-  getSeamlessList()
-})
-async function getSeamlessList() {
-  const seamless = await mock.get(URL.MOCK_PICSUMLIST_PAGE)
-  if (seamless)
-    // 获取对象数组中每个对象的download_url和title属性，并赋值给res.seamlessList
-    res.seamlessList = seamless.map((item) => ({
-      imgUrl: item.download_url,
-      title: item.author,
-    }))
-}
-const mockApi = async (mock_url = URL.MOCK_DEFAULT, url = URL.MOCK_ERROR) =>
-  (mockData.value = await http.get({
-    url: url,
-    mock: mock_url,
-  }))
+
+const mockApi = async (url = URL.MOCK_DEFAULT, isProxy = false) =>
+  (mockData.value = await mock.get(url, isProxy))
 </script>
 
 <style scoped></style>

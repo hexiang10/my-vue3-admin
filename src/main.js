@@ -1,6 +1,7 @@
 import { createApp } from 'vue'
 import App from './App.vue'
 import 'normalize.css/normalize.css' // a modern alternative to CSS resets
+import 'tdesign-vue-next/es/style/index.css'; // 引入组件库的少量全局样式变量
 import './tailwindcss.css'
 
 const app = createApp(App)

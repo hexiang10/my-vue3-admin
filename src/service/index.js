@@ -8,14 +8,13 @@ const http = new AxiosApi({
   baseURL: import.meta.env.VITE_APP_BASE_API,
   timeout: 50000,
   interceptors: {
-    // 在发送请求之前做些什么
+    // console.log('======请求成功的拦截======')
     requestInterceptor: (config) => {
       // 添加token到请求头
       const token = useUserStore().token
       if (token) {
         config.headers.Authorization = `Bearer ${token}`
       }
-      // console.log('======请求成功的拦截======')
       return config
     },
     requestInterceptorCatch: (err) => {
@@ -31,6 +30,7 @@ const http = new AxiosApi({
       return res.data?.data
     },
     responseInterceptorCatch: (err) => {
+      // console.log('======响应失败的拦截======')
       if (err.config?.mock) return mock.request(err.config)
       handler.codeHandler(err?.response?.status, err.message)
       throw err
