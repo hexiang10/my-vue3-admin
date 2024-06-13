@@ -1,0 +1,128 @@
+<template>
+  <div>
+    <t-aside class="h-screen" :width="menuWidth + 'px'">
+      <t-menu
+        v-model:expanded="expanded"
+        theme="dark"
+        default-value="2-1"
+        :collapsed="collapsed"
+        :expandMutex="true">
+        <template #logo>
+          <div class="my-center-flex">
+            <img src="@/assets/svg/vite.svg" alt="logo" />
+            <span class="logo-font" v-show="!collapsed">Vue3 Admin</span>
+          </div>
+        </template>
+        <t-menu-item value="item1">
+          <template #icon>
+            <t-icon name="dashboard" />
+          </template>
+          仪表盘
+        </t-menu-item>
+        <t-menu-item value="resource">
+          <template #icon>
+            <t-icon name="server" />
+          </template>
+          资源列表
+        </t-menu-item>
+        <t-menu-item value="root" @click="$router.push('/')">
+          <template #icon>
+            <t-icon name="root-list" />
+          </template>
+          根目录
+        </t-menu-item>
+        <t-submenu value="2">
+          <template #icon>
+            <t-icon name="control-platform" />
+          </template>
+          <template #title>
+            <span>调度平台</span>
+          </template>
+          <t-menu-item value="2-1"> 二级菜单内容 </t-menu-item>
+          <t-menu-item value="2-2"> 二级菜单内容 </t-menu-item>
+          <t-menu-item value="2-3"> 二级菜单内容 </t-menu-item>
+        </t-submenu>
+        <t-menu-item value="precise-monitor">
+          <template #icon>
+            <t-icon name="precise-monitor" />
+          </template>
+          精准监控
+        </t-menu-item>
+        <t-submenu title="消息区" value="3" disabled>
+          <template #icon>
+            <t-icon name="mail" />
+          </template>
+          <template #title>
+            <span>消息区</span>
+          </template>
+          <t-menu-item value="3-1"> 二级菜单内容 </t-menu-item>
+          <t-menu-item value="3-2"> 二级菜单内容 </t-menu-item>
+          <t-menu-item value="3-3"> 二级菜单内容 </t-menu-item>
+        </t-submenu>
+        <t-menu-item value="user-circle">
+          <template #icon>
+            <t-icon name="user-circle" />
+          </template>
+          个人中心
+        </t-menu-item>
+        <t-submenu value="4">
+          <template #icon>
+            <t-icon name="play-circle" />
+          </template>
+          <template #title>
+            <span>视频区</span>
+          </template>
+          <t-menu-item value="4-1"> 二级菜单内容 </t-menu-item>
+          <t-menu-item value="4-2"> 二级菜单内容 </t-menu-item>
+          <t-menu-item value="4-3"> 二级菜单内容 </t-menu-item>
+        </t-submenu>
+        <t-menu-item value="edit1">
+          <template #icon>
+            <t-icon name="edit-1" />
+          </template>
+          资源编辑
+        </t-menu-item>
+        <template #operations>
+          <t-button
+            class="collapse-btn"
+            variant="text"
+            shape="square"
+            @click="changeCollapsed">
+            <template #icon><t-icon name="view-list" /></template>
+          </t-button>
+        </template>
+      </t-menu>
+    </t-aside>
+  </div>
+</template>
+
+<script setup>
+const collapsed = ref(false)
+const menuWidth = ref(232)
+const changeCollapsed = () => {
+  collapsed.value = !collapsed.value
+  menuWidth.value = collapsed.value ? 64 : 232
+}
+const expanded = ref(['2'])
+</script>
+
+<style scoped>
+.collapse-btn {
+  color: #fff;
+  &:hover {
+    background-color: #4b4b4b;
+    border-color: transparent;
+    --ripple-color: #383838;
+  }
+}
+.logo-font {
+  font-family: '微软雅黑';
+  font-style: normal;
+  font-weight: bold;
+  font-size: 20px;
+  color: #ffffff;
+  text-decoration: none;
+  text-indent: 10px;
+  text-shadow: 0px 0px 0px;
+}
+</style>
