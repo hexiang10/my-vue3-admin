@@ -1,10 +1,13 @@
 <template>
   <div>
-    <t-aside class="h-screen" :width="menuWidth + 'px'">
+    <t-aside
+      class="h-full"
+      :width="menuWidth + 'px'"
+      :style="{ backgroundColor: '#242424' }">
       <t-menu
         v-model:expanded="expanded"
         theme="dark"
-        default-value="2-1"
+        default-value="root"
         :collapsed="collapsed"
         :expandMutex="true">
         <template #logo>
@@ -13,19 +16,19 @@
             <span class="logo-font" v-show="!collapsed">Vue3 Admin</span>
           </div>
         </template>
-        <t-menu-item value="item1">
+        <t-menu-item value="root" :to="URL.SYSTEM_HOME">
           <template #icon>
             <t-icon name="dashboard" />
           </template>
           仪表盘
         </t-menu-item>
-        <t-menu-item value="resource">
+        <t-menu-item value="resource" :to="URL.SYSTEM_TEST">
           <template #icon>
-            <t-icon name="server" />
+            <t-icon name="measurement-1" />
           </template>
-          资源列表
+          测试页
         </t-menu-item>
-        <t-menu-item value="root" @click="$router.push('/')">
+        <t-menu-item value="home" :to="URL.SYSTEM_MAIN">
           <template #icon>
             <t-icon name="root-list" />
           </template>
@@ -59,7 +62,7 @@
           <t-menu-item value="3-2"> 二级菜单内容 </t-menu-item>
           <t-menu-item value="3-3"> 二级菜单内容 </t-menu-item>
         </t-submenu>
-        <t-menu-item value="user-circle">
+        <t-menu-item value="user-circle" :to="'/system/main/user'">
           <template #icon>
             <t-icon name="user-circle" />
           </template>
@@ -97,13 +100,15 @@
 </template>
 
 <script setup>
+import URL from '@/enum/url'
+
+const expanded = ref(['root'])
 const collapsed = ref(false)
 const menuWidth = ref(232)
 const changeCollapsed = () => {
   collapsed.value = !collapsed.value
   menuWidth.value = collapsed.value ? 64 : 232
 }
-const expanded = ref(['2'])
 </script>
 
 <style scoped>

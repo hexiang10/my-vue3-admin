@@ -2,11 +2,13 @@
 
 const URL = {
   // 系统管理相关
-  SYSTEM_HOME: '/system/main/home',
-  SYSTEM_LOGIN: '/system/login',
-  SYSTEM_LOGOUT: '/system/logout',
+  SYSTEM_MAIN: '/system',
+  SYSTEM_HOME: '/system/home',
+  SYSTEM_LOGIN: '/login',
+  SYSTEM_LOGOUT: '/logout',
   SYSTEM_ROLE: '/system/role/',
   SYSTEM_USER: '/system/user/',
+  SYSTEM_TEST: '/system/test',
   // mock相关
   MOCK_ERROR: '/test/error',
   MOCK_DEFAULT: '/test/helloword',

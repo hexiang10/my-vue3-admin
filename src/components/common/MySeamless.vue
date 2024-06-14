@@ -1,7 +1,6 @@
 <template>
   <vue3-seamless-scroll
     :list="list"
-    :style="{ width: width }"
     class="scroll"
     :direction="`left`"
     :hover="true"
@@ -25,16 +24,13 @@
 import { Vue3SeamlessScroll } from 'vue3-seamless-scroll'
 
 const props = defineProps({
-  width: {
-    type: String,
-  },
   list: {
     type: Array,
     default: () => {
       let arr = []
       for (let i = 0; i < 20; i++) {
         arr.push({
-          url: `https://cdn-img.gitcode.com/ed/ca/62ed3ca6afbac50cc2dadf19846feb6d30db01d4a5a46ce2edf4aef9d597259e.png?time=1716449229155`, // https://picsum.photos/120/150?${i}
+          url: `https://picsum.photos/120/150?${i}`, //
           title: `第${i + 1}条数据`,
         })
       }
