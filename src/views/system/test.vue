@@ -66,16 +66,7 @@
     <el-divider />
     <lord-icon src="https://cdn.lordicon.com/vyqvtrtg.json" />
     <letters-t-icon /><CenterFocusStrongIcon />
-    <el-divider />
-    <lord-icon src="https://cdn.lordicon.com/vyqvtrtg.json" />
-    <letters-t-icon /><CenterFocusStrongIcon />
-    <el-divider />
-    <lord-icon src="https://cdn.lordicon.com/vyqvtrtg.json" />
-    <letters-t-icon /><CenterFocusStrongIcon />
-    <el-divider />
-    <lord-icon src="https://cdn.lordicon.com/vyqvtrtg.json" />
-    <letters-t-icon /><CenterFocusStrongIcon />
-    <el-divider />
+
   </div>
 </template>
 
@@ -94,8 +85,4 @@ const mockApi = async (url = URL.MOCK_DEFAULT, isProxy = false) =>
   (mockData.value = await mock.get(url, isProxy))
 </script>
 
-<style scoped>
-.el-divider--horizontal {
-  border-top: 1px #232323 solid;
-}
-</style>
+<style scoped></style>

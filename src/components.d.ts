@@ -28,6 +28,8 @@ declare module 'vue' {
     MySeamless: typeof import('./components/common/MySeamless.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    SystemLayout: typeof import('./components/layout/SystemLayout.vue')['default']
+    TAffix: typeof import('tdesign-vue-next')['Affix']
     TAside: typeof import('tdesign-vue-next')['Aside']
     TButton: typeof import('tdesign-vue-next')['Button']
     TContent: typeof import('tdesign-vue-next')['Content']

@@ -1,5 +1,10 @@
 <template>
   <t-head-menu default-value="2-1" theme="dark" expand-type="popup">
+    <template #logo>
+      <div class="">
+        <img src="@/assets/images/theme.png" alt="logo" />
+      </div>
+    </template>
     <t-submenu value="1">
       <template #title>
         <span>菜单1</span>
@@ -62,6 +67,16 @@
 </template>
 
 <style lang="less" scoped>
+.logo-font {
+  font-family: '微软雅黑';
+  font-style: normal;
+  font-weight: bold;
+  font-size: 20px;
+  color: #ffffff;
+  text-decoration: none;
+  text-indent: 10px;
+  text-shadow: 0px 0px 0px;
+}
 .t-menu__operations {
   .t-button {
     margin-left: 8px;
