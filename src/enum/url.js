@@ -12,7 +12,6 @@ const URL = {
   // mock相关
   MOCK_ERROR: '/test/error',
   MOCK_DEFAULT: '/test/helloword',
-  MOCK_JSONPLACEHOLDER: 'https://jsonplaceholder.typicode.com/todos/1',
   MOCK_PICSUMLIST: 'https://picsum.photos/v2/list',
   MOCK_PICSUMLIST_PAGE: 'https://picsum.photos/v2/list?page=2&limit=20',
   // 错误页面

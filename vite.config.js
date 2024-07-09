@@ -72,7 +72,12 @@ export default defineConfig(({ mode }) => {
           }),
         ],
         dts: path.resolve(pathSrc, 'auto-imports.d.ts'),
-        imports: ['vue', 'vue-router', { axios: [['default', 'axios']] }],
+        imports: [
+          'vue',
+          'vue-router',
+          'pinia',
+          { axios: [['default', 'axios']] },
+        ],
         // 指定需要导入的组件所在的文件夹
         // dirs:[],
       }),

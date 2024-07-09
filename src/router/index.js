@@ -1,7 +1,23 @@
 import URL from '@/enum/url'
 import { useUserStore } from '@/store/system/userStore'
 import { createRouter, createWebHistory } from 'vue-router'
-import routes from '~pages'
+
+const routes = [
+  {
+    path: '/',
+    redirect: '/system/home',
+  },
+  {
+    path: '/login',
+    name: 'login',
+    component: () => import('@/views/login.vue'),
+  },
+  {
+    path: '/:all(.*)*',
+    name: 'notFound',
+    component: () => import('@/views/[...all].vue'),
+  },
+]
 
 const router = createRouter({
   history: createWebHistory(),

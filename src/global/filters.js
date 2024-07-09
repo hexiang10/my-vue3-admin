@@ -1,3 +1,5 @@
+import router from '@/router'
+
 export const filters = {
   // 格式化时间
   getformatTime(currentDate) {
@@ -10,5 +12,24 @@ export const filters = {
     let seconds = ('0' + currentDate.getSeconds()).slice(-2) // 不足两位补0
     // 格式化时间字符串（可自定义返回格式）
     return `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`
+  },
+
+  getRoutes(target, routes, name, path) {
+    const newRoute = routes.find((item) => {
+      const fullPath = path + '/' + item.path
+      return target.includes(fullPath) && item.path !== ''
+    })
+    console.log(newRoute)
+    if (newRoute) {
+      path = path + '/' + newRoute.path
+      if (path === target) {
+        router.addRoute(name, newRoute)
+        console.log(router.getRoutes())
+      } else {
+        if (newRoute.children) {
+          this.getRoutes(target, newRoute.children, newRoute.name, path)
+        }
+      }
+    }
   },
 }

@@ -24,50 +24,10 @@
     <h1 class="text-3xl font-bold text-blue-500">Hello world!</h1>
     <el-divider />
     <my-seamless :list="res.seamlessList" class="w-full"></my-seamless>
-    <el-divider />
-    <lord-icon src="https://cdn.lordicon.com/vyqvtrtg.json" />
-    <letters-t-icon /><CenterFocusStrongIcon />
-    <el-divider />
-    <lord-icon src="https://cdn.lordicon.com/vyqvtrtg.json" />
-    <letters-t-icon /><CenterFocusStrongIcon />
-    <el-divider />
-    <lord-icon src="https://cdn.lordicon.com/vyqvtrtg.json" />
-    <letters-t-icon /><CenterFocusStrongIcon />
-    <el-divider />
-    <lord-icon src="https://cdn.lordicon.com/vyqvtrtg.json" />
-    <letters-t-icon /><CenterFocusStrongIcon />
-    <el-divider />
-    <lord-icon src="https://cdn.lordicon.com/vyqvtrtg.json" />
-    <letters-t-icon /><CenterFocusStrongIcon />
-    <el-divider />
-    <lord-icon src="https://cdn.lordicon.com/vyqvtrtg.json" />
-    <letters-t-icon /><CenterFocusStrongIcon />
-    <el-divider />
-    <lord-icon src="https://cdn.lordicon.com/vyqvtrtg.json" />
-    <letters-t-icon /><CenterFocusStrongIcon />
-    <el-divider />
-    <lord-icon src="https://cdn.lordicon.com/vyqvtrtg.json" />
-    <letters-t-icon /><CenterFocusStrongIcon />
-    <el-divider />
-    <lord-icon src="https://cdn.lordicon.com/vyqvtrtg.json" />
-    <letters-t-icon /><CenterFocusStrongIcon />
-    <el-divider />
-    <lord-icon src="https://cdn.lordicon.com/vyqvtrtg.json" />
-    <letters-t-icon /><CenterFocusStrongIcon />
-    <el-divider />
-    <lord-icon src="https://cdn.lordicon.com/vyqvtrtg.json" />
-    <letters-t-icon /><CenterFocusStrongIcon />
-    <el-divider />
-    <lord-icon src="https://cdn.lordicon.com/vyqvtrtg.json" />
-    <letters-t-icon /><CenterFocusStrongIcon />
-    <el-divider />
-    <lord-icon src="https://cdn.lordicon.com/vyqvtrtg.json" />
-    <letters-t-icon /><CenterFocusStrongIcon />
-    <el-divider />
-    <lord-icon src="https://cdn.lordicon.com/vyqvtrtg.json" />
-    <letters-t-icon /><CenterFocusStrongIcon />
-
   </div>
+  <p v-for="item in 20" :key="item" class="scrollbar-demo-item">
+    {{ item }}
+  </p>
 </template>
 
 <script setup>
@@ -85,4 +45,16 @@ const mockApi = async (url = URL.MOCK_DEFAULT, isProxy = false) =>
   (mockData.value = await mock.get(url, isProxy))
 </script>
 
-<style scoped></style>
+<style scoped>
+.scrollbar-demo-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 50px;
+  margin: 10px;
+  text-align: center;
+  border-radius: 4px;
+  background: var(--el-color-primary-light-9);
+  color: var(--el-color-primary);
+}
+</style>

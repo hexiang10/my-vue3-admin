@@ -6,8 +6,4 @@
 
 <script setup></script>
 
-<style scoped>
-.body {
-  background-color: #fff;
-}
-</style>
+<style scoped></style>

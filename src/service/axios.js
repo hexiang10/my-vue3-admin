@@ -31,25 +31,27 @@ class AxiosApi {
     )
   }
 
-  request(config) {
-    return new Promise((resolve, reject) => {
-      // 对请求config的处理
-      if (config.interceptors?.requestInterceptor) {
-        config = config.interceptors.requestInterceptor(config)
-      }
+  async request(config) {
+    try {
+      return await new Promise((resolve, reject) => {
+        // 对请求config的处理
+        if (config.interceptors?.requestInterceptor) {
+          config = config.interceptors.requestInterceptor(config)
+        }
 
-      this.instance
-        .request(config)
-        .then((res) => {
-          if (config.interceptors?.responseInterceptor) {
-            res = config.interceptors.responseInterceptor(res)
-          }
-          resolve(res)
-        })
-        .catch((err) => {
-          reject(err)
-        })
-    })
+        this.instance
+          .request(config)
+          .then((res) => {
+            if (config.interceptors?.responseInterceptor) {
+              res = config.interceptors.responseInterceptor(res)
+            }
+            resolve(res)
+          })
+          .catch((err) => {
+            reject(err)
+          })
+      })
+    } catch (err_1) { }
   }
   get(config) {
     return this.request({ ...config, method: 'GET' })
